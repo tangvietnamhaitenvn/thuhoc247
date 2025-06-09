@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Hello World</title>
+<title>Đếm thời gian Việt Nam</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 40px;
+    }
+    #clock {
+        font-size: 48px;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
-<h1>Hello World</h1>
+<h1>Thời gian hiện tại ở Việt Nam</h1>
+<div id="clock">00:00:00</div>
+
+<script>
+function updateClock() {
+    var now = new Date();
+    var options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Ho_Chi_Minh' };
+    var timeString = new Intl.DateTimeFormat('vi-VN', options).format(now);
+    document.getElementById('clock').textContent = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 </body>
 </html>
